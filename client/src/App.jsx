@@ -12,7 +12,7 @@ export default function App() {
   const [gameState, setGameState] = useState(null);
 
   useEffect(() => {
-    const socket = io();
+    const socket = io(import.meta.env.VITE_SERVER_URL || '');
     socketRef.current = socket;
 
     socket.on('joined', ({ code, playerId: pid }) => {
